@@ -26,6 +26,11 @@ const server = app.listen(port, ()=>{
     console.log(`Server is running on localhost: ${port}`);
 });
 
+app.get('/all', (req, res) => {
+    //console.log('all got request');
+    res.send(projectData);
+});
+
 let allData = []
 app.post('/datafromuserandapi', (req, res) => {
     // console.log('post request!');
@@ -34,14 +39,11 @@ app.post('/datafromuserandapi', (req, res) => {
         temp: req.body.weatherData.temp,
         description: req.body.weatherData.description,
         icon: req.body.weatherData.icon,
-        feeling: req.body.feeling
+        feelings: req.body.feelings
     }
     //console.log(projectData);
     allData.unshift(projectData);
     res.send(projectData);
 });
 
-app.get('/all', (req, res) => {
-    //console.log('all got request');
-    res.send(projectData);
-});
+
