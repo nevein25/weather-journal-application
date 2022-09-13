@@ -31,10 +31,10 @@ body {
 }
 
 .app .card #entryHolder {
-    background-color: rgb(169, 29, 29);
+ 
     /* max-width: 850px; */
     height: 100%;
-    background-color: rgb(237, 237, 237);
+    background-color: rgb(237 237 237 / 67%);
     font-size: 25px;
     display: grid;
     grid-template-rows: 2fr 2fr;
@@ -62,6 +62,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    width: 100%;
 }
 
 .app .card .search {
@@ -84,6 +85,12 @@ body {
     resize: vertical;
     border-radius: 5px;
     margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 900px) {
+    .card {
+        grid-template-rows: 2fr 2fr;
+    }
 }
 
 @media only screen and (min-width: 901px) {

@@ -1,5 +1,5 @@
 // The app API endpoint
-const projectData = {};
+let projectData = {};
 
 // Creating express application
 // require in case of express returns a function
@@ -28,19 +28,20 @@ const server = app.listen(port, ()=>{
 
 let allData = []
 app.post('/datafromuserandapi', (req, res) => {
-    console.log('I got request');
-    let comingData = {
+    // console.log('post request!');
+    projectData = {
         name: req.body.weatherData.name,
         temp: req.body.weatherData.temp,
         description: req.body.weatherData.description,
         icon: req.body.weatherData.icon,
         feeling: req.body.feeling
     }
-    console.log(comingData);
-    allData.unshift(comingData);
-    // console.log(req.body);
-    // console.log('w', req.body.weatherData.name);
-    // console.log('f',req.body.feeling);
+    //console.log(projectData);
+    allData.unshift(projectData);
+    res.send(projectData);
 });
 
-
+app.get('/all', (req, res) => {
+    //console.log('all got request');
+    res.send(projectData);
+});
